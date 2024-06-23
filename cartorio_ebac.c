@@ -68,62 +68,46 @@ int registro(){
 	fclose(file);
 	
 	system ("pause");
-	
-	
-	
-	
-	
-	
 }
 int consulta()
 {
 	
-	char cpf [20];
-	char conteudo [200];
-	int x = 0;
-	setlocale(LC_ALL, "portuguese");
+	 char cpf [20];
+	 char conteudo [200];
+	 int x = 0;
+	 setlocale(LC_ALL, "portuguese");
 
      printf("Digite o CPF a ser consultado: ");
      scanf("%s", &cpf);
-     
+    
      FILE * file;
      file = fopen(cpf, "r");
-     
+   
      if(file == NULL)
      {
      	printf("Não foi possivel localizar o arquivo!.");
 	 }
      
-    
-	
-    if(fgets(conteudo,200,file) != NULL){
-	printf("Localizamos essas informações.\n");
-	for(x=1;x<=4;x++)
-	{
+     if(fgets(conteudo,200,file) != NULL)
+	 {
+	 printf("Localizamos essas informações.\n");
+	 for(x=1;x<=4;x++)
+	 {
 	
 		
 	 while(fgets(conteudo,200,file) != NULL)
-     { 	  	
-	 	 
-		 printf("%s",conteudo);
-     	
+     { 	  		 	 
+	 printf("%s",conteudo);     	
 	 }
     
-	}
-}
-		printf("\n");
-		system("pause");
+	 }
+     }
+	 printf("\n");
+	 system("pause");
+	 }
 
-
-	}
-
-
-
-
-
- 
-
-int deleta(){
+int deleta()
+{
 	
 	char cpf [20];
 	int confirma = 0;
@@ -140,7 +124,9 @@ int deleta(){
 		printf("\n");
 		fclose(file);
 	}
-	else{
+	else 
+	{
+		
 	fclose(file);
 	printf("tem certeza que deseja deletar o cpf:%s ?",cpf);
 	printf("\n");
@@ -149,35 +135,26 @@ int deleta(){
 	scanf("%d",&confirma);
     printf("\n");
 	
-	if(confirma == 1){
+	if(confirma == 1)
+	{
 		remove(cpf);
 		FILE *file;
 		file = fopen(cpf, "r");
+		fclose(file);
 		printf("o arquivo foi deletado com sucesso");
 		printf("\n");
 		system("pause");
 	}
-	else{
+	else
+	{
 		printf("operação cancelada");
 		printf("\n");
 		system("pause");
 	}
-
-
-
-
-
 	
-}
+   }
 	system("pause");
 }
-
-
-
-
-
-
-
 
 int main()
 {
@@ -187,20 +164,14 @@ int opcao =0, x=1;
 
 for(x=1;x=1;)
 {
-
-
 system("cls");
 setlocale(LC_ALL, "portuguese");
 printf("\n###Bem vindo ao cartório da EBAC###");
-
-
-
-
 printf("\nescolha a opção deseja do menu:\n\n");
 printf("\t1 - Registrar nomes\n");
 printf("\t2 - Consultar nomes\n");
 printf("\t3 - Deletar nomes\n");
-
+printf("opção:");
 scanf("%d",&opcao);
 system("cls");
 
@@ -216,32 +187,12 @@ switch(opcao){
     deleta();
 	break;
     default:
-    printf("voce escolheu uma opcao invalida");
+    printf("voce escolheu uma opcao invalida\n");
     system("pause");
-
-
+    
 }
 
-
-
-
-
-printf("\n\n\nesse software é de alta confidencialidade, criado por Gustavo Assis.");
-
-
 }
-
-
-
-
-
-
-
-
-
 system("pause");
 return 0;
-
-
-
 }
